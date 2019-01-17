@@ -2,9 +2,10 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 
 const Header = (props) => {
+  console.log(props)
   return (
     <div>
-      <h1>{props.course}</h1>
+      <h1>{props.course.name}</h1>
     </div>
   )
 }
@@ -12,8 +13,7 @@ const Header = (props) => {
 const Total = (props) => {
   return (
     <div>
-      <p>
-        yhteensä {props.exercises1 + props.exercises2 + props.exercises3} tehtävää
+      <p>yhteensä {props.course.parts[0].exercises + props.course.parts[1].exercises + props.course.parts[2].exercises} tehtävää
       </p>
     </div>
   )
@@ -22,9 +22,9 @@ const Total = (props) => {
 const Content = (props) => {
   return (
     <div>
-        <Part part = {props.part1} ex ={props.exercises1}/>
-        <Part part = {props.part2} ex ={props.exercises2}/>
-        <Part part = {props.part3} ex ={props.exercises3}/>
+      <Part name={props.course.parts[0].name} ex={props.course.parts[0].exercises} />
+      <Part name={props.course.parts[1].name} ex={props.course.parts[1].exercises} />
+      <Part name={props.course.parts[2].name} ex={props.course.parts[2].exercises} />
     </div>
   )
 }
@@ -33,28 +33,37 @@ const Part = (props) => {
   return (
     <div>
       <p>
-        {props.part} {props.ex}
+        {props.name} {props.ex}
       </p>
     </div>
   )
 }
 
 const App = () => {
-  const course = 'Half Stack -sovelluskehitys'
+  const course = {
+    name: 'Half Stack -sovelluskehitys',
+    parts : [
+      {
+        name: 'Reactin perusteet',
+        exercises: 10
+      },
+      {
+        name: 'Tiedonvälitys propseilla',
+        exercises: 7
+      },
+      {
+        name: 'Komponenttien tila',
+        exercises: 14
+      }
+    ]
+  }
 
-  const part1 = 'Reactin perusteet'
-  const exercises1 = 10
-  const part2 = 'Tiedonvälitys propseilla'
-  const exercises2 = 7
-  const part3 = 'Komponenttien tila'
-  const exercises3 = 14
-
-  return (
+  return(
     <div>
-      <Header course={course} />
-      <Content part1={part1} exercises1={exercises1} part2={part2} exercises2={exercises2} part3={part3} exercises3={exercises3} />
-      <Total exercises1={exercises1} exercises2={exercises2} exercises3={exercises3} />
-    </div>
+    <Header course={course} />
+    <Content course={course} />
+    <Total course={course} />
+    </div >
   )
 }
 
