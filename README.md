@@ -14,3 +14,6 @@ Tasks:
 [0.6](https://github.com/olgaviho/FullStack2019/blob/master/Viikko0/Task0.6.png)
 
 ### [Viikko1](https://github.com/olgaviho/FullStack2019/tree/master/Viikko1)
+
+Tasks:
+[1.1-1.5](https://github.com/olgaviho/FullStack2019/blob/master/Viikko1/course/src/index.js)
