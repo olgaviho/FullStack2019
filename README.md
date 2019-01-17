@@ -1,6 +1,9 @@
+# Full Stack 2019
+
 This repository belongs to the course called "Full Stack"
 
-[Viikko0](https://github.com/olgaviho/FullStack2019/tree/master/Viikko0)
+
+### [Viikko0](https://github.com/olgaviho/FullStack2019/tree/master/Viikko0)
 
 Tasks:
 
@@ -10,4 +13,4 @@ Tasks:
 
 [0.6](https://github.com/olgaviho/FullStack2019/blob/master/Viikko0/Task0.6.png)
 
-[Viikko1](https://github.com/olgaviho/FullStack2019/tree/master/Viikko1)
+### [Viikko1](https://github.com/olgaviho/FullStack2019/tree/master/Viikko1)
