@@ -16,8 +16,9 @@ Tasks:
 ### [Viikko 1](https://github.com/olgaviho/FullStack2019/tree/master/Viikko1)
 
 Tasks:
+
 [1.1-1.5](https://github.com/olgaviho/FullStack2019/blob/master/Viikko1/course/src/index.js)
 
-[Unicafe](https://github.com/olgaviho/FullStack2019/blob/master/Viikko1/unicafe/unicafeapp/src/index.js)
+[Unicafe 1.6-1.11](https://github.com/olgaviho/FullStack2019/blob/master/Viikko1/unicafe/unicafeapp/src/index.js)
 
-[Anekdootit](https://github.com/olgaviho/FullStack2019/blob/master/Viikko1/anekdootit/anekdootit/src/index.js)
+[Anekdootit 1.12.-1.14](https://github.com/olgaviho/FullStack2019/blob/master/Viikko1/anekdootit/anekdootit/src/index.js)
