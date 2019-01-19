@@ -1,6 +1,6 @@
 # Fullstack 2019
 
-This repository belongs to the course called "Fullstack in HY"
+This repository belongs to the course called "Fullstack"
 
 
 ### [Viikko 0](https://github.com/olgaviho/FullStack2019/tree/master/Viikko0)
