@@ -3,7 +3,7 @@
 This repository belongs to the course called "Fullstack"
 
 
-### [Viikko 0]
+### Viikko 0
 
 [0.4](https://github.com/olgaviho/FullStack2019/blob/master/Viikko0/Task0.4.png)
 
@@ -11,7 +11,7 @@ This repository belongs to the course called "Fullstack"
 
 [0.6](https://github.com/olgaviho/FullStack2019/blob/master/Viikko0/Task0.6.png)
 
-### [Viikko 1]
+### Viikko 1
 
 [1.1-1.5](https://github.com/olgaviho/FullStack2019/blob/master/Viikko1/course/src/index.js)
 
