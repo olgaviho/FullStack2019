@@ -2,10 +2,6 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import Course from './components/course'
 
-import axios from 'axios'
-
-
-
 
 const App = () => {
 
@@ -37,6 +33,9 @@ const App = () => {
         {
           name: 'indeksit',
           exercises: 5
+        }, {
+          name: 'tietokannat',
+          exercises: 12
         }
       ]
     }
