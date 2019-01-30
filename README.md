@@ -23,5 +23,5 @@ This repository belongs to the course called "Fullstack"
 
 [Course 2.1-2.5](https://github.com/olgaviho/FullStack2019/tree/master/Viikko2/course/course1)
 
-[Puhelinluettelo 2.6-2.10](https://github.com/olgaviho/FullStack2019/tree/master/Viikko2/puhelinluettelo/puhelinluettelo2)
+[Puhelinluettelo 2.6-2.10](https://github.com/olgaviho/FullStack2019/tree/master/Viikko2/puhelinluettelo/puhelinluettelo)
 
