@@ -29,3 +29,7 @@ This repository belongs to the course called "Fullstack"
 
 [Blogs-backend 4.1-4.21](https://github.com/olgaviho/FullStack2019/tree/master/viikko4/blogilistaus)
 
+### Viikko 5
+
+[Blogs-frontend 5.1-5.21](https://github.com/olgaviho/FullStack2019/tree/master/viikko5/bloglist-frontend)
+
