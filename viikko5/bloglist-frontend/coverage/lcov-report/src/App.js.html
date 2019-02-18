@@ -1,0 +1,686 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/App.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">All files</a> / <a href="index.html">src</a> App.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">33.33% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>23/69</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">33.33% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>2/6</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">20% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>4/20</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">33.82% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>23/68</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { useState, useEffect } from 'react'
+import Blog from './components/Blog'
+import blogService from './services/blogs'
+import loginService from './services/login'
+import Notification from './components/Notification'
+import CreateBlogForm from './components/CreateBlog'
+import LoginUserForm from './components/LoginUser'
+import Togglable from './components/Togglable'
+&nbsp;
+&nbsp;
+const App = () =&gt; {
+  const [blogs, setBlogs] = useState([])
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
+  const [user, setUser] = useState(null)
+  const [newTitle, setNewTitle] = useState('')
+  const [newUrl, setNewUrl] = useState('')
+  const [newAuthor, setNewAuthor] = useState('')
+  const [newLikes, setNewLikes] = useState(0)
+  const [message, setMessage] = useState(null)
+&nbsp;
+&nbsp;
+  useEffect(() =&gt; {
+    blogService.getAll().then(blogs =&gt;
+      setBlogs(blogs)
+    )
+  }, [])
+&nbsp;
+  useEffect(() =&gt; {
+    const loggedUserJSON = window.localStorage.getItem('loggedBlogappUser')
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (loggedUserJSON) {
+      const user = <span class="cstat-no" title="statement not covered" >JSON.parse(loggedUserJSON)</span>
+<span class="cstat-no" title="statement not covered" >      setUser(user)</span>
+<span class="cstat-no" title="statement not covered" >      blogService.setToken(user.token)</span>
+    }
+  }, [])
+&nbsp;
+  const addBlog = <span class="fstat-no" title="function not covered" >(e</span>vent) =&gt; {
+<span class="cstat-no" title="statement not covered" >    event.preventDefault()</span>
+&nbsp;
+    const blogObject = <span class="cstat-no" title="statement not covered" >{</span>
+      title: newTitle,
+      author: newAuthor,
+      likes: newLikes,
+      url: newUrl,
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    blogService</span>
+      .create(blogObject).then(<span class="fstat-no" title="function not covered" >re</span>turnedBlog =&gt; {
+<span class="cstat-no" title="statement not covered" >        setBlogs(blogs.concat(returnedBlog))</span>
+      })
+<span class="cstat-no" title="statement not covered" >    setMessage(`uusi blogi luotu ${blogObject.title}`)</span>
+<span class="cstat-no" title="statement not covered" >    setTimeout(<span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      setMessage(null)</span>
+    }, 5000)
+&nbsp;
+  }
+&nbsp;
+  const updateBlog = <span class="fstat-no" title="function not covered" >(u</span>pdatedBlog) =&gt; {
+&nbsp;
+    const blogObject = <span class="cstat-no" title="statement not covered" >{</span>
+      title: updatedBlog.title,
+      author: updatedBlog.author,
+      likes: updatedBlog.likes + 1,
+      url: updatedBlog.url,
+      id: updatedBlog.id,
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    blogService</span>
+      .update(blogObject).then(<span class="fstat-no" title="function not covered" >re</span>turnedBlog =&gt; {
+<span class="cstat-no" title="statement not covered" >        setBlogs(blogs.map(<span class="fstat-no" title="function not covered" >bl</span>og =&gt; <span class="cstat-no" title="statement not covered" >blog.id !== updatedBlog.id ? blog : returnedBlog)</span>)</span>
+      })
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    setMessage(`blogia on päivitetty ${blogObject.title}`)</span>
+<span class="cstat-no" title="statement not covered" >    setTimeout(<span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      setMessage(null)</span>
+    }, 5000)
+  }
+&nbsp;
+  const deleteBlog = <span class="fstat-no" title="function not covered" >(d</span>eletedBlog) =&gt; {
+&nbsp;
+    const blogObject = <span class="cstat-no" title="statement not covered" >{</span>
+      title: deletedBlog.title,
+      author: deletedBlog.author,
+      likes: deletedBlog.likes,
+      url: deletedBlog.url,
+      id: deletedBlog.id
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    blogService</span>
+      .remove(blogObject).then(
+        setBlogs(blogs.filter((<span class="fstat-no" title="function not covered" >re</span>turnedBlog =&gt; <span class="cstat-no" title="statement not covered" >returnedBlog.id !== deletedBlog.id)</span>)
+        )
+      )
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    setMessage(`blogi on poistettu ${blogObject.title}`)</span>
+<span class="cstat-no" title="statement not covered" >    setTimeout(<span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      setMessage(null)</span>
+    }, 5000)
+&nbsp;
+  }
+&nbsp;
+&nbsp;
+  const handleLogin = <span class="fstat-no" title="function not covered" >as</span>ync (event) =&gt; {
+<span class="cstat-no" title="statement not covered" >    event.preventDefault()</span>
+<span class="cstat-no" title="statement not covered" >    try {</span>
+      const user = <span class="cstat-no" title="statement not covered" >await loginService.login({</span>
+        username, password
+      })
+<span class="cstat-no" title="statement not covered" >      window.localStorage.setItem(</span>
+        'loggedBlogappUser', JSON.stringify(user)
+      )
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      blogService.setToken(user.token)</span>
+<span class="cstat-no" title="statement not covered" >      setUser(user)</span>
+<span class="cstat-no" title="statement not covered" >      setUsername('')</span>
+<span class="cstat-no" title="statement not covered" >      setPassword('')</span>
+&nbsp;
+    } catch (ex) {
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      setMessage('epäonnistunut kirjautuminen')</span>
+<span class="cstat-no" title="statement not covered" >      setTimeout(<span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >        setMessage(null)</span>
+      }, 5000)
+&nbsp;
+    }
+  }
+&nbsp;
+  const handleLogout = <span class="fstat-no" title="function not covered" >as</span>ync (event) =&gt; {
+<span class="cstat-no" title="statement not covered" >    event.preventDefault()</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    try {</span>
+<span class="cstat-no" title="statement not covered" >      await loginService.logout({</span>
+      })
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      window.localStorage.removeItem(</span>
+        'loggedBlogappUser', JSON.stringify(user)
+      )
+<span class="cstat-no" title="statement not covered" >      setUser(null)</span>
+&nbsp;
+    } catch (ex) {
+<span class="cstat-no" title="statement not covered" >      console.log('pieleen meni uloskirjautuminen')</span>
+    }
+  }
+&nbsp;
+  <span class="missing-if-branch" title="else path not taken" >E</span>if (user === null) {
+    return (
+      &lt;div&gt;
+        &lt;Notification message={message} /&gt;
+        &lt;h2&gt;Log in to application&lt;/h2&gt;
+&nbsp;
+&nbsp;
+        &lt;LoginUserForm
+          password={password}
+          setUsername={setUsername}
+          setPassword={setPassword}
+          username={username}
+          handleLogin={handleLogin}
+        /&gt;
+&nbsp;
+      &lt;/div&gt;
+    )
+  }
+&nbsp;
+  const sortBlogs = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(b</span>logs) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    blogs.sort(<span class="fstat-no" title="function not covered" >fu</span>nction (a, b) {</span>
+<span class="cstat-no" title="statement not covered" >      return b.likes - a.likes</span>
+    })
+<span class="cstat-no" title="statement not covered" >    return blogs</span>
+  }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  return (</span>
+    &lt;div&gt;
+&nbsp;
+      &lt;Notification message={message} /&gt;
+&nbsp;
+      &lt;h3&gt;Hei {user.username}!&lt;/h3&gt;
+&nbsp;
+      &lt;form onSubmit={handleLogout}&gt;
+        &lt;button type="submit"&gt;logout&lt;/button&gt;
+      &lt;/form&gt;
+&nbsp;
+      &lt;h2&gt;blogs&lt;/h2&gt;
+&nbsp;
+      {sortBlogs(blogs).map(<span class="fstat-no" title="function not covered" >bl</span>og =&gt;
+<span class="cstat-no" title="statement not covered" >        &lt;Blog blog={blog} updateBlog={updateBlog}</span>
+          deleteBlog={deleteBlog} key={blog.id} user={user}
+        /&gt;
+&nbsp;
+      )}
+&nbsp;
+      &lt;Togglable buttonLabel='create'&gt;
+        &lt;CreateBlogForm
+          newAuthor={newAuthor}
+          newLikes={newLikes}
+          newTitle={newTitle}
+          newUrl={newUrl}
+          setNewAuthor={setNewAuthor}
+          setNewLikes={setNewLikes}
+          setNewTitle={setNewTitle}
+          setNewUrl={setNewUrl}
+          addBlog={addBlog}
+        /&gt;
+      &lt;/Togglable&gt;
+    &lt;/div&gt;
+  )
+}
+export default App</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Feb 15 2019 14:13:40 GMT+0200 (EET)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>
