@@ -49,13 +49,14 @@ const Menu = ({ sortBlogs, user, message, password, username, handleLogin, newAu
             <Link style={padding} to="/users">users</Link>
             <Link style={padding} to="/">blogs</Link>
           </div>
-          <Route exact path="/users" render={() => <Users users={users} />} />
+          <Route exact path="/users" render={() => <Users users={users} blogs={blogs} />} />
           <Route exact path="/users/:id" render={({ match }) =>
             <OneUser user={userById(match.params.id, users)} />
           } />
 
           <Route exact path="/blogs/:id" render={({ match }) =>
-            <OneBlog blog={blogById(match.params.id, blogs)} />
+            <OneBlog blog={blogById(match.params.id, blogs)} updateBlog={updateBlog}
+              user={user} deleteBlog={deleteBlog} />
           } />
 
           <Route exact path="/" render={() => <Home users={users}
