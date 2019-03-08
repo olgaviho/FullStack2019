@@ -1,11 +1,10 @@
 import React from 'react'
-
+import { Pad } from './Style'
 import {
   Link
 } from 'react-router-dom'
 
 const Users = (props) => {
-
 
   if (props.users.length === 0) {
     return null
@@ -17,14 +16,11 @@ const Users = (props) => {
       <div>
         {props.users.map(user => {
           const userBlogs = props.blogs.filter((blog) => blog.user && blog.user.id === user.id)
-
-
-          return (<li key={user.id}>
-            <Link to={`/users/${user.id}`}> {user.name} blogs: {userBlogs.length}</Link>
-          </li>)
-        }
-
-        )}
+          return (
+            <Pad key={user.id}>
+              <Link to={`/users/${user.id}`}> {user.name} blogs: {userBlogs.length}</Link>
+            </Pad>)
+        })}
       </div>
     </div>
   )

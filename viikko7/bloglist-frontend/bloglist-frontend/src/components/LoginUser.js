@@ -1,4 +1,5 @@
 import React from 'react'
+import { Button, Input } from './Style'
 
 
 const LoginUserForm = ({
@@ -14,19 +15,18 @@ const LoginUserForm = ({
 
   const { reset: reset2, ...passwordLoput } = password
   return (
-    
     <div>
       <form onSubmit={handleLogin}>
         <div>
           username
-          <input {...usernameLoput}/>
+          <Input {...usernameLoput}/>
         </div>
 
         <div>
           password
-          <input {...passwordLoput}/>
+          <Input {...passwordLoput}/>
         </div>
-        <button type="submit">login</button>
+        <Button type="submit">login</Button>
       </form>
     </div>
   )

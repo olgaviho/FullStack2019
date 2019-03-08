@@ -3,12 +3,15 @@ import Users from './Users'
 import OneUser from './OneUser'
 import OneBlog from './OneBlog'
 import Notification from './Notification'
+import { Button } from './Style'
 import LoginUserForm from './LoginUser'
 import Home from './Home'
 import {
   BrowserRouter as Router,
   Route, Link
 } from 'react-router-dom'
+import { Navigation, Notif } from './Style'
+
 
 
 const Menu = ({ sortBlogs, user, message, password, username, handleLogin, newAuthor,
@@ -20,7 +23,9 @@ const Menu = ({ sortBlogs, user, message, password, username, handleLogin, newAu
 
     return (
       <div>
+
         <Notification message={message} />
+
         <h2>Log in to application</h2>
 
         <LoginUserForm
@@ -40,18 +45,22 @@ const Menu = ({ sortBlogs, user, message, password, username, handleLogin, newAu
       <h3>Hei {user.username}!</h3>
 
       <form onSubmit={handleLogout}>
-        <button type="submit">logout</button>
+        <Button type="submit">logout</Button>
       </form>
 
       <Router>
         <div>
           <div>
-            <Link style={padding} to="/users">users</Link>
-            <Link style={padding} to="/">blogs</Link>
+            <Navigation>
+              <Notification message={message} />
+              <Link style={padding} to="/users">users</Link>
+              <Link style={padding} to="/">blogs</Link>
+            </Navigation>
           </div>
+
           <Route exact path="/users" render={() => <Users users={users} blogs={blogs} />} />
           <Route exact path="/users/:id" render={({ match }) =>
-            <OneUser user={userById(match.params.id, users)} />
+            <OneUser user={userById(match.params.id, users)} blogs={blogs} />
           } />
 
           <Route exact path="/blogs/:id" render={({ match }) =>

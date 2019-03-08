@@ -4,6 +4,7 @@ import loginService from './services/login'
 import userService from './services/users'
 import Menu from './components/Routers'
 import { useField } from './hooks'
+import { Page } from './components/Style'
 
 
 
@@ -158,29 +159,31 @@ const App = () => {
   }
 
   return (
-    <div>
-      <Menu users={users}
-        sortBlogs={sortBlogs}
-        user={user}
-        message={message}
-        password={password}
-        username={username}
-        handleLogin={handleLogin}
-        newAuthor={newAuthor}
-        newLikes={newLikes}
-        newTitle={newTitle}
-        newUrl={newUrl}
-        setNewAuthor={setNewAuthor}
-        setNewLikes={setNewLikes}
-        setNewTitle={setNewTitle}
-        setNewUrl={setNewUrl}
-        addBlog={addBlog}
-        handleLogout={handleLogout}
-        blogs={blogs}
-        updateBlog={updateBlog}
-        deleteBlog={deleteBlog}
-      />
-    </div>
+    <Page>
+      <div>
+        <Menu users={users}
+          sortBlogs={sortBlogs}
+          user={user}
+          message={message}
+          password={password}
+          username={username}
+          handleLogin={handleLogin}
+          newAuthor={newAuthor}
+          newLikes={newLikes}
+          newTitle={newTitle}
+          newUrl={newUrl}
+          setNewAuthor={setNewAuthor}
+          setNewLikes={setNewLikes}
+          setNewTitle={setNewTitle}
+          setNewUrl={setNewUrl}
+          addBlog={addBlog}
+          handleLogout={handleLogout}
+          blogs={blogs}
+          updateBlog={updateBlog}
+          deleteBlog={deleteBlog}
+        />
+      </div>
+    </Page>
   )
 
 }

@@ -1,16 +1,13 @@
 import React from 'react'
-import Notification from './Notification'
 import CreateBlogForm from './CreateBlog'
 import Togglable from './Togglable'
 import Blog from './Blog'
 
-const Home = ({ sortBlogs, user, message, newAuthor,
+const Home = ({ sortBlogs, user, newAuthor,
   newLikes, newTitle, newUrl, setNewAuthor, setNewLikes, setNewUrl, addBlog, setNewTitle, updateBlog, deleteBlog, blogs }) => {
 
   return (
     <div>
-
-      <Notification message={message} />
 
       <h2>blogs</h2>
 

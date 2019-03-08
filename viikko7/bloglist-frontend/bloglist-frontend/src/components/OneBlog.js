@@ -1,4 +1,5 @@
 import React from 'react'
+import { Button, OtherButton } from './Style'
 
 
 const OneBlog = (props) => {
@@ -9,28 +10,13 @@ const OneBlog = (props) => {
 
     let deleteVisible = false
 
-    console.log('props', props)
 
-    if (props.user !== null) {
+
+    if (props.user !== null && props.blog.user !== null) {
       if (props.blog.user.username === props.user.username) {
         deleteVisible = true
       }
     }
-
-
-    // let deleteVisible = false
-
-    // if (props.user === null) {
-    //   deleteVisible = false
-    // } else if (props.user !== null) {
-    //   if (props.blog.user === null) {
-    //     deleteVisible = false
-    //   } else if (props.blog.user.username === props.user.username) {
-    //     deleteVisible = true
-    //   } else {
-    //     deleteVisible = false
-    //   }
-    // }
 
     const showWhenUserOwner = {
       display: deleteVisible ? '' : 'none',
@@ -43,9 +29,9 @@ const OneBlog = (props) => {
         <li>{props.blog.url}</li>
         <li>{props.blog.author}</li>
         <li>Likes: {props.blog.likes}</li>
-        <button onClick={() => props.updateBlog(props.blog)}>like</button>
+        <Button onClick={() => props.updateBlog(props.blog)}>like</Button>
         <div style={showWhenUserOwner}>
-          <button onClick={() => props.deleteBlog(props.blog)}>delete</button>
+          <OtherButton onClick={() => props.deleteBlog(props.blog)}>delete</OtherButton>
         </div>
       </div >
     )

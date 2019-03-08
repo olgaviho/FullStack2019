@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import {
   BrowserRouter as Router,
-  Route, Link, Redirect, withRouter
+  Route, Link, Redirect, 
 } from 'react-router-dom'
 
 
@@ -80,10 +80,12 @@ const CreateNew = (props) => {
   const [content, setContent] = useState('')
   const [author, setAuthor] = useState('')
   const [info, setInfo] = useState('')
+  const [created, setCreated]=useState(false)
 
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    setCreated(true)
     props.addNew({
       content,
       author,
@@ -92,6 +94,9 @@ const CreateNew = (props) => {
     })
   }
   
+  if(created) {
+    return <Redirect to="/" />
+  }
 
   return (
     <div>
@@ -133,7 +138,6 @@ const App = () => {
       id: '2'
     }
   ])
-
   const [notification, setNotification] = useState('')
 
   const addNew = (anecdote) => {
@@ -160,6 +164,7 @@ const App = () => {
 
     setAnecdotes(anecdotes.map(a => a.id === id ? voted : a))
   }
+
 
   return (
     <div>
