@@ -8,7 +8,7 @@ const Notification = ({notification}) => {
     borderWidth: 1
   }
 
-  console.log(notification)
+
   if (notification.length === 0) {
     return null
   }
