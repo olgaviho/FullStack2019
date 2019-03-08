@@ -23,7 +23,7 @@ This repository belongs to the course called "Fullstack"
 
 [Courses 2.1-2.5](https://github.com/olgaviho/FullStack2019/tree/master/Viikko2/course/course1)
 
-[Puhelinluettelo 2.6-2.20](https://github.com/olgaviho/FullStack2019/tree/master/Viikko2/puhelinluettelo/puhelinluettelo)
+[PhoneBook 2.6-2.20](https://github.com/olgaviho/FullStack2019/tree/master/Viikko2/puhelinluettelo/puhelinluettelo)
 
 ### Week 4
 
@@ -42,3 +42,5 @@ This repository belongs to the course called "Fullstack"
 ### Week 7
 
 [Anecdotes 7.1-7.3](https://github.com/olgaviho/FullStack2019/tree/master/viikko7/anecdotes/routed-anecdotes)
+
+[Blogs-frontend 7.7-7.15](https://github.com/olgaviho/FullStack2019/tree/master/viikko7/bloglist-frontend/bloglist-frontend)
