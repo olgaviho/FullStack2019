@@ -9,7 +9,7 @@ const App = () => {
   const [newName, setNewName] = useState('')
   const [newNumber, setNewNumber] = useState('')
   const [newLookFor, setNewLookFor] = useState('')
-  const [messageToUser, setMessageToUser] = useState({text: null})
+  const [messageToUser, setMessageToUser] = useState({ text: null })
 
   useEffect(() => {
     personService
@@ -24,7 +24,7 @@ const App = () => {
       return null
     } else {
       return (
-        <div className={props.message.style}> 
+        <div className={props.message.style}>
           {props.message.text}
         </div>
       )
@@ -49,20 +49,19 @@ const App = () => {
     />
   )
 
-  const deletePerson = (props) => {
-    if (window.confirm(`Olet poistamassa ${props.name}`)) {
-    personService
-      .deletePerson(props.id).then(()=>{
-        setPersons(persons.filter((person => person.id !== props.id )))
+  const deletePerson = (blog) => {
+    if (window.confirm(`Olet poistamassa ${blog.name}`)) {
+      personService
+        .deletePerson(blog.id).then(() => {
+          setPersons(persons.filter((person => person.id !== blog.id)))
 
-      })
+        })
     }
   }
 
   const addName = (event) => {
     event.preventDefault()
     const nameObject = {
-     // id: persons.length + 1 + Math.floor(Math.random()*100000),
       id: persons.length ? [...persons].sort((a, b) => b.id - a.id)[0].id + 1 : 1,
       name: newName,
       number: newNumber,
@@ -79,20 +78,34 @@ const App = () => {
 
     if (ok === true) {
 
-      setMessageToUser(
-        {text: `Henkilö ${newName} lisätty luetteloon`,
-        style: 'success'}
-      )
-      setTimeout(() => {
-        setMessageToUser({text: null})
-      }, 5000)
-
       personService
         .create(nameObject)
-        .then(response => {
-          setPersons(persons.concat(response))
+        .then(createdPerson => {
+          setPersons(persons.concat(createdPerson))
           setNewName('')
           setNewNumber('')
+          setMessageToUser(
+            {
+              text: `Henkilö ${newName} lisätty luetteloon`,
+              style: 'success'
+            }
+          )
+          setTimeout(() => {
+            setMessageToUser({ text: null })
+          }, 5000)
+
+        }).catch(error => {
+          setMessageToUser(
+            {
+              text: `${error.response.data.error} `,
+              style: 'fail'
+            }
+          )
+          setTimeout(() => {
+            setMessageToUser({ text: null })
+          }, 5000)
+
+
         })
 
     } else {
@@ -104,16 +117,16 @@ const App = () => {
           setPersons(persons.map(tyyppi => tyyppi.id !== person.id ? tyyppi : returnedPerson))
         })
         .catch(error => {
-
+          console.log(error)
           setMessageToUser(
-            {text: `Yhteystieto ${changedPerson.name} on jo valitettavasti poistettu`, 
-          style: 'fail'}
-          )  
+            {
+              text: `${error.response.data.error}`,
+              style: 'fail'
+            }
+          )
           setTimeout(() => {
-            setMessageToUser({text:null})
+            setMessageToUser({ text: null })
           }, 5000)
-
-          setPersons(persons.filter(p => p.id !== person.id))
         })
     }
   }

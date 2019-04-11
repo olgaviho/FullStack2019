@@ -1,12 +1,6 @@
 {
   "persons": [
     {
-      "id": 7,
-      "name": "Saara2",
-      "number": "1111111",
-      "date": "2019-01-25T10:29:47.706Z"
-    },
-    {
       "id": 4,
       "name": "Olga",
       "number": "11111",

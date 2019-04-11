@@ -7,9 +7,6 @@ import { Pad } from './Style'
 
 const Blog = ({ blog }) => {
 
-
-
-
   return (
     <Pad>
       <div>
