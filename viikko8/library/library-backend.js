@@ -21,12 +21,12 @@ const typeDefs = gql`
     name: String!
     born: Int
     id: ID!
-    bookCount: Int!
+    bookCount: Int
   }
 
   type Book {
     title: String!
-    author: String!
+    author: String
     published: Int!
     id: ID!
     genres: [String!]
@@ -36,7 +36,8 @@ const typeDefs = gql`
       bookCount: Int!
       authorCount: Int!
       allBooks(author: String, genre: String): [Book]
-      allAuthors: [Author!]!
+      allAuthors: [Author]
+      Author: Int
   }
 
   type Mutation {
@@ -59,30 +60,38 @@ const resolvers = {
 
   // allaolevia pitää korjata:
   Query: {
-    allBooks: async (root, args) => { // toimii ilman parametreja pitää saada genre mukaan, pientä hiomista, toimiiko kenttä author jos pyytää sen näkyville?
+    allBooks: async (root, args) => {
+      // toimiiko kenttä author jos pyytää sen näkyville?
       const booksit = await Book.find({})
       const vaatimukset = args.genre
 
       if (vaatimukset === undefined) {
         return booksit
       }
-
-      console.log('vaatimukset', vaatimukset)
-      const filterbooksit = booksit.filter((b) => {
-        console.log('bn ganret', b.genres)
-        b.genres.includes(vaatimukset)
+      const filterbooks = booksit.filter((b) => {
+        return (b.genres.includes(vaatimukset))
       })
 
-      return filterbooksit
+      return filterbooks
     },
 
-    bookCount: () => Book.collection.countDocuments(), // toimii ilman parametreja
-    authorCount: () => Author.collection.countDocuments(), // toimii
-    allAuthors: () => {  // pitää saada toimimaan kirjojen lukumaaralla?
-      return Author.find({})
+    bookCount: () => {
+      return Book.collection.countDocuments()
+    },
+    authorCount: () => Author.collection.countDocuments(),
+
+    allAuthors: async () => {  // ei toimi kirjojen lukumaaralla!
+      console.log('moi')
+      return await Author.find({})
+    },
+  },
+  Author: {
+    bookCount: async (root) => {
+      console.log('root', root)
+      const books = await Book.find({ author: root.id })
+      return books.length
     }
   },
-
   // mutaatiot toimivat
   Mutation: {
     addBook: async (root, args) => {
@@ -141,6 +150,7 @@ const resolvers = {
     }
   }
 }
+
 
 const server = new ApolloServer({
   typeDefs,
