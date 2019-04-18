@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import { Header, Input, Button } from 'semantic-ui-react'
 
 const CreateBlogForm = ({
   addBlog,
@@ -13,45 +13,39 @@ const CreateBlogForm = ({
   setNewUrl
 }) => {
 
-  CreateBlogForm.propTypes = {
-    addBlog: PropTypes.func.isRequired,
-    newTitle: PropTypes.string.isRequired,
-    newUrl: PropTypes.string.isRequired
-  }
-
 
   return (
     <div>
-      <h3>Add a new Blog</h3>
+      <Header as='h3'> Log in to application </Header>
       <form onSubmit={addBlog} >
         <div>
           title
-          <input type="text" value={newTitle} name="Title"
+          <Input type="text" value={newTitle} name="Title" id='Title'
             onChange={({ target }) => setNewTitle(target.value)}
           />
         </div>
 
         <div>
           author
-          <input type="text" value={newAuthor} name="Author"
+          <Input type="text" value={newAuthor} name="Author" id='Author'
             onChange={({ target }) => setNewAuthor(target.value)}
           />
         </div>
 
         <div>
           url
-          <input type="text" value={newUrl} name="Url"
+          <Input type="text" value={newUrl} name="Url" id='Url'
             onChange={({ target }) => setNewUrl(target.value)}
           />
         </div>
         <div>
           likes
-          <input type="number" value={newLikes} name="Likes"
+          <Input type="number" value={newLikes} name="Likes" id='Likes'
             onChange={({ target }) => setNewLikes(target.value)}
           />
         </div>
 
-        <button type="submit">Add new Blog</button>
+        <Button type="submit" basic color='olive' content='olive'>Add new Blog </Button>
       </form >
     </div>
   )

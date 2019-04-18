@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
+import { Header, List } from 'semantic-ui-react'
 
 const Users = (props) => {
   if (props.users === undefined) {
@@ -18,15 +19,18 @@ const Users = (props) => {
 
   return (
     <div>
-      <h3> Users </h3>
-      {props.users.map(u => <li key={u.id}>
-        <Link to={`/users/${u.id}`}>{u.username} </Link> number of blogs: {numberOfBlogs(u.id)}
-      </li>)
-      }
-    </div>
+      <Header as='h3'> Users </Header>
+      <List>
+        {props.users.map(u =>
+          <List.Item key={u.id}>
+            <Link to={`/users/${u.id}`}>
+              {u.username}
+            </Link> number of blogs: {numberOfBlogs(u.id)}
+          </List.Item>
+        )}
+      </List>
+    </div >
   )
-
-
 }
 
 const mapStateToProps = state => {

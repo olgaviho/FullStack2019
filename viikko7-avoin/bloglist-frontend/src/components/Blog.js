@@ -25,7 +25,6 @@ const Blog = ({ blog, updateBlog, deleteBlog, user }) => {
 
 
   let deleteVisible = false
-
   if (user === null) {
     deleteVisible = false
   } else if (user !== null) {
@@ -38,9 +37,13 @@ const Blog = ({ blog, updateBlog, deleteBlog, user }) => {
     }
   }
 
+
+
   const showWhenUserOwner = {
     display: deleteVisible ? '' : 'none',
   }
+
+
 
 
   return (
@@ -63,6 +66,7 @@ const Blog = ({ blog, updateBlog, deleteBlog, user }) => {
           <div style={showWhenUserOwner}>
             <button onClick={() => deleteBlog(blog)}>delete</button>
           </div>
+          <h3>Comments</h3>
         </div>
       </div>
     </div>

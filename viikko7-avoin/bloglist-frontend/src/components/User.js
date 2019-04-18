@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { List, Header } from 'semantic-ui-react'
 
 const User = (props) => {
   if (props.user === undefined) {
@@ -17,18 +18,20 @@ const User = (props) => {
   if (usersBlogs(props.user.id).length === 0) {
     return (
       <div>
-        <h2>{props.user.name}</h2>
-        <h3>This user does not have any blogs</h3>
+        <Header as='h2'>{props.user.name}</Header>
+        <Header as='h3'>This user does not have any blogs</Header>
       </div>
     )
   }
 
   return (
     <div>
-      <h2>{props.user.name}</h2>
-      <h3>added blogs:</h3>
-      {usersBlogs(props.user.id).map(b =>
-        <li key={b.id} > {b.title}</li>)}
+      <Header as='h2'>{props.user.name}</Header>
+      <Header as='h3'>added blogs:</Header>
+      <List>
+        {usersBlogs(props.user.id).map(b =>
+          <List.Item key={b.id} > {b.title}</List.Item>)}
+      </List>
     </div>
   )
 }

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Input, Button } from 'semantic-ui-react'
 
 
 const LoginUserForm = ({
@@ -16,14 +17,14 @@ const LoginUserForm = ({
       <form onSubmit={handleLogin}>
         <div>
           username
-          <input {...username}/>
+          <Input {...username}/>
         </div>
 
         <div>
           password
-          <input {...password}/>
+          <Input {...password}/>
         </div>
-        <button type="submit">login</button>
+        <Button type="submit" basic color = 'olive' content='olive'>login</Button>
       </form>
     </div>
   )

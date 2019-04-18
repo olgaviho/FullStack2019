@@ -9,12 +9,14 @@ import { setNotification } from './reducers/notificationReducer'
 import { initializeBlogs, createBlog, editBlog, deleteBlog } from './reducers/blogsReducer'
 import { loginUser, logoutUser, setUser } from './reducers/loginReducer'
 import { initializeUsers } from './reducers/usersReducer'
+import { initializeComments, createComment } from './reducers/commentReducer'
 import {
   BrowserRouter as Router,
   Route, Link
 } from 'react-router-dom'
 import User from './components/User'
 import OneBlog from './components/OneBlog'
+import { Header, Button, Container, Menu } from 'semantic-ui-react'
 
 
 const App = (props) => {
@@ -24,11 +26,14 @@ const App = (props) => {
   const [newUrl, setNewUrl] = useState('')
   const [newAuthor, setNewAuthor] = useState('')
   const [newLikes, setNewLikes] = useState(0)
+  const [newComment, setNewComment] = useState('')
 
 
   useEffect(() => {
     props.initializeBlogs()
     props.initializeUsers()
+    props.initializeComments()
+    console.log('yritettiin initializejuttua')
   }, [])
 
   useEffect(() => {
@@ -39,6 +44,17 @@ const App = (props) => {
       props.setUser(user)
     }
   }, [])
+
+  const addNewComment = (blog) => {
+    const commentObject = {
+      content: newComment,
+      blog: blog.id
+    }
+
+    props.createComment(commentObject)
+    props.setNotification('uusi kommentti luotu')
+
+  }
 
   const userById = (id) => {
     const uuseri = props.users.find(u => u.id === id)
@@ -61,8 +77,13 @@ const App = (props) => {
       url: newUrl,
     }
 
-    props.createBlog(blogObject)
+    
     props.setNotification(`uusi blogi luotu ${blogObject.title}`)
+    setNewTitle('')
+    setNewUrl('')
+    setNewLikes('0')
+    setNewAuthor('')
+    props.createBlog(blogObject)
 
   }
 
@@ -126,48 +147,56 @@ const App = (props) => {
     const padding = { padding: 5 }
 
     return (
-      <div>
 
-        <Notification />
+      <Container >
+        <div>
+          <form onSubmit={handleLogout}>
+            <Header as='h3'> Hei! </Header>
+            <Button type="submit" basic color='grey' content='grey'>logout</Button>
+          </form>
 
-        <h3>Hei!</h3>
-        <form onSubmit={handleLogout}>
-          <button type="submit">logout</button>
-        </form>
-
-        <Router>
-          <div>
+          <Router>
             <div>
-              <Link style={padding} to="/"> home</Link>
-              <Link style={padding} to="/users">users</Link>
+
+              <Menu inverted>
+                <Menu.Item link>
+                  <Link style={padding} to="/"> home</Link>
+                </Menu.Item>
+                <Menu.Item link>
+                  <Link style={padding} to="/users">users</Link>
+                </Menu.Item>
+              </Menu>
+
+              <Route exact path="/users" render={() =>
+                <Users />} />
+              <Route exact path="/" render={() =>
+                <Home setNewTitle={setNewTitle} setNewUrl={setNewUrl}
+                  setNewAuthor={setNewAuthor} addBlog={addBlog} updateBlog={updateBlog}
+                  deleteBlog={deleteBlog} sortBlogs={sortBlogs} setNewLikes={setNewLikes} />} />
+              <Route path="/users/:id" render={({ match }) =>
+                <User user={userById(match.params.id)} />} />
+              <Route path="/blogs/:id" render={({ match }) =>
+                <OneBlog blog={blogById(match.params.id)} updateBlog={updateBlog} deleteBlog={deleteBlog} setNewComment={setNewComment}
+                  addNewComment={addNewComment} />} />
             </div>
-            <Route exact path="/users" render={() =>
-              <Users />} />
-            <Route exact path="/" render={() =>
-              <Home setNewTitle={setNewTitle} setNewUrl={setNewUrl}
-                setNewAuthor={setNewAuthor} addBlog={addBlog} updateBlog={updateBlog}
-                deleteBlog={deleteBlog} sortBlogs={sortBlogs} setNewLikes={setNewLikes} />} />
-            <Route path="/users/:id" render={({ match }) =>
-              <User user={userById(match.params.id)} />} />
-            <Route path="/blogs/:id" render={({ match }) =>
-              <OneBlog blog={blogById(match.params.id)} updateBlog={updateBlog} deleteBlog={deleteBlog} />} />
-          </div>
-        </Router>
-      </div>
+          </Router>
+        </div>
+      </Container >
     )
   } else {
     return (
-      <div>
-        <Notification />
-        <h2>Log in to application</h2>
+      <Container>
 
+        <Notification />
+
+        <Header as='h2'> Log in to application </Header>
 
         <LoginUserForm
           password={password}
           username={username}
           handleLogin={handleLogin}
         />
-      </div>
+      </Container>
     )
   }
 }
@@ -181,7 +210,9 @@ const mapDispatchToProps = {
   logoutUser,
   loginUser,
   setUser,
-  initializeUsers
+  initializeUsers,
+  initializeComments,
+  createComment
 }
 
 const mapStateToProps = state => {
@@ -189,7 +220,8 @@ const mapStateToProps = state => {
     notification: state.notification,
     blogs: state.blogs,
     user: state.user,
-    users: state.users
+    users: state.users,
+    comments: state.comments
   }
 }
 

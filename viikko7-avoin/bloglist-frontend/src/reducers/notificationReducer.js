@@ -11,6 +11,7 @@ const notificationReducer = (state = null, action) => {
 }
 
 export const setNotification = (content) => {
+  console.log('setNotification')
   return dispatch => {
     dispatch({
       type: 'NEW_NOTIFICATION',

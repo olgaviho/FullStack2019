@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { Link, Redirect } from 'react-router-dom'
+import CreateComment from './CreateComment'
+import { Header, Button, List } from 'semantic-ui-react'
 
 const OneBlog = (props) => {
 
@@ -14,16 +16,33 @@ const OneBlog = (props) => {
     )
   }
 
+  const usercoms = props.comments.filter(c => c.blog !== undefined && c.blog !== null)
+
+
+  const filtcom = usercoms.filter(c => {
+    return (c.blog.id === props.blog.id)
+  })
+
+
   if (props.blog === null) {
     return null
   } else if (props.blog.user === null) {
     return (
       <div>
-        <h2>{props.blog.title}</h2>
+        <Header as='h2'>{props.blog.title}</Header>
         <div>
           <Link to={props.blog.url}>{props.blog.url}</Link>
           <p>{props.blog.likes} likes
-            <button onClick={() => props.updateBlog(props.blog)}>like</button> </p>
+            <Button onClick={() => props.updateBlog(props.blog)} basic color='olive' content='olive'>like</Button> </p>
+        </div>
+        <div>
+          <List>
+            <Header as='h3'>Comments</Header>
+            {filtcom.map(f =>
+              <List.Item key={f.id}> {f.content} </List.Item>
+            )}
+          </List>
+          <CreateComment addNewComment={props.addNewComment} setNewComment={props.setNewComment} blog={props.blog} />
         </div>
       </div>
     )
@@ -43,20 +62,33 @@ const OneBlog = (props) => {
 
 
 
+
+
   return (
     <div>
-      <h2>{props.blog.title}</h2>
+      <Header as='h2'>{props.blog.title}</Header>
       <div>
         <Link to={props.blog.url}>{props.blog.url}</Link>
         <p>{props.blog.likes} likes
-          <button onClick={() => props.updateBlog(props.blog)}>like</button> </p>
+          <Button onClick={() => props.updateBlog(props.blog)} basic color='olive' content='olive'>like</Button> </p>
         <div style={showWhenUserOwner}>
-          <button onClick={() => {
+          <Button onClick={() => {
             props.deleteBlog(props.blog)
             setDeletedBlog(true)
-          }}>delete</button>
+          }}
+          basic color='red' content='red'
+          >delete</Button>
         </div>
-        added by {props.blog.user.username}
+      </div>
+      <div>
+        <Header as='h3'>Comments</Header>
+        <List>
+          {filtcom.map(f =>
+            <List.Item key={f.id}>
+              {f.content}
+            </List.Item>)}
+        </List>
+        <CreateComment addNewComment={props.addNewComment} setNewComment={props.setNewComment} blog={props.blog} />
       </div>
     </div>
   )
@@ -68,7 +100,8 @@ const mapStateToProps = state => {
     notification: state.notification,
     blogs: state.blogs,
     user: state.user,
-    users: state.users
+    users: state.users,
+    comments: state.comments
   }
 }
 

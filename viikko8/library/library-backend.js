@@ -26,10 +26,20 @@ const typeDefs = gql`
 
   type Book {
     title: String!
-    author: String
+    author: Author
     published: Int!
     id: ID!
     genres: [String!]
+  }
+
+  type User {
+    username: String!
+    favouriteGenre: String!
+    id: ID!
+  }
+
+  type Token {
+    value: String!
   }
 
   type Query {
@@ -38,6 +48,7 @@ const typeDefs = gql`
       allBooks(author: String, genre: String): [Book]
       allAuthors: [Author]
       Author: Int
+      me: User
   }
 
   type Mutation {
@@ -52,27 +63,32 @@ const typeDefs = gql`
       name: String!
       setBornTo: Int!
     ): Author
+
+    createUser(
+      username: String!
+      favouriteGenre: String!
+    ): User
+    
+    login(
+      username: String!
+      password: String!
+    ): Token
   }
   
 `
 
 const resolvers = {
-
-  // allaolevia pitää korjata:
   Query: {
     allBooks: async (root, args) => {
-      // toimiiko kenttä author jos pyytää sen näkyville?
-      const booksit = await Book.find({})
-      const vaatimukset = args.genre
-
-      if (vaatimukset === undefined) {
-        return booksit
+      const query = {}
+      if (args.genre) {
+        query.genres = {
+          $in: [args.genre]
+        }
       }
-      const filterbooks = booksit.filter((b) => {
-        return (b.genres.includes(vaatimukset))
-      })
-
-      return filterbooks
+      const juttu = await Book.find(query).populate('author')
+      console.log(juttu)
+      return juttu
     },
 
     bookCount: () => {
@@ -80,24 +96,21 @@ const resolvers = {
     },
     authorCount: () => Author.collection.countDocuments(),
 
-    allAuthors: async () => {  // ei toimi kirjojen lukumaaralla!
-      console.log('moi')
+    allAuthors: async () => { 
       return await Author.find({})
     },
   },
   Author: {
     bookCount: async (root) => {
-      console.log('root', root)
       const books = await Book.find({ author: root.id })
       return books.length
     }
   },
-  // mutaatiot toimivat
+
   Mutation: {
     addBook: async (root, args) => {
 
       let authorName = await Author.findOne({ name: args.author })
-
       if (authorName == null || authorName == undefined) {
 
         const newAuthor = new Author({

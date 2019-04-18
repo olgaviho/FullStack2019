@@ -3,13 +3,14 @@ import Togglable from './Togglable'
 import CreateBlogForm from './CreateBlog'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { Header } from 'semantic-ui-react'
 
 const Home = (props) => {
 
 
   return (
     <div>
-      <h2>blogs</h2>
+      <Header as='h2'> Blogs </Header>
 
       {props.blogs.map(b => <li key={b.id}>
         <Link to={`/blogs/${b.id}`}>{b.title} </Link>
