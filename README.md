@@ -39,8 +39,8 @@ This repository belongs to the course called "Fullstack"
 
 [Anecdotes 6.3-6.21](https://github.com/olgaviho/FullStack2019/tree/master/viikko6/anekdootit)
 
-### Week 7
+### Week 7 open university
 
-[Anecdotes 7.1-7.3](https://github.com/olgaviho/FullStack2019/tree/master/viikko7/anecdotes/routed-anecdotes)
+[Anecdotes 7.1-7.3](https://github.com/olgaviho/FullStack2019/tree/master/viikko7-avoin/anekdootit/routed-anecdotes)
 
-[Blogs-frontend 7.7-7.15](https://github.com/olgaviho/FullStack2019/tree/master/viikko7/bloglist-frontend/bloglist-frontend)
+[Blogs-frontend 7.4-7.20](https://github.com/olgaviho/FullStack2019/tree/master/viikko7-avoin/bloglist-frontend)
