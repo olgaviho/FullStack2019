@@ -7,8 +7,6 @@ const NewBook = (props) => {
   const [genre, setGenre] = useState('')
   const [genres, setGenres] = useState([])
 
-  console.log(props)
-
   const submit = async (e) => {
     e.preventDefault()
     setPublished(parseInt(published))
@@ -17,8 +15,6 @@ const NewBook = (props) => {
     await props.addBook({
       variables: { title, author, published, genres }
     })
-
-    console.log('add book...')
 
     setTitle('')
     setPublished('')

@@ -1,9 +1,25 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-const Books = ( {result}) => {
+const Books = ({ result }) => {
 
-  const books = result.data.allBooks
-  console.log(result.data)
+  const [bookState, setBookState] = useState([])
+
+  const allBooks = result.data.allBooks
+
+  const books = bookState.length < 1 ? result.data.allBooks : bookState
+
+  const uniqueFunction = (value, index, self) => self.indexOf(value) === index
+
+  const booksWithGenres = allBooks.filter(b => b.genres.length !== 0)
+
+  const genres = booksWithGenres
+    .map(b => b.genres)
+    .reduce((acc, curr) => acc.concat(curr), [])
+    .filter(uniqueFunction)
+
+
+  // niistä nappulat, joista voi filtteröidä resultin kirjat
+
 
   return (
     <div>
@@ -20,15 +36,23 @@ const Books = ( {result}) => {
               published
             </th>
           </tr>
-          {books.map(a =>
-            <tr key={a.title}>
+          {books.map(a => {
+            const author = a.author ? a.author : { name: '' }
+            return (<tr key={a.title}>
               <td>{a.title}</td>
-              <td>{a.author}</td>
+              <td>{author.name}</td>
               <td>{a.published}</td>
-            </tr>
-          )}
+            </tr>)
+          })}
         </tbody>
       </table>
+
+      {genres.map(g => 
+        <button onClick={() => {
+          const newBooks = allBooks.filter(b => b.genres.includes(g))
+          setBookState(newBooks)
+        }}>{g}</button>)}
+
     </div>
   )
 }
